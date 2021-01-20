@@ -1,0 +1,621 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BookStoreApi</name>
+    </assembly>
+    <members>
+        <member name="T:BookStoreApi.Controllers.AuthorsController">
+            <summary>
+            This controller supports all CRUD operations for Authors which maps to Author table.
+            </summary>
+        </member>
+        <member name="F:BookStoreApi.Controllers.AuthorsController.bookStoreService">
+            <summary>
+            Service instance.
+            </summary>
+        </member>
+        <member name="M:BookStoreApi.Controllers.AuthorsController.#ctor(BookStoreApi.Services.Contract.IBookStoreService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BookStoreApi.Controllers.AuthorsController"/> class with necessary dependencies.
+            </summary>
+            <param name="service">Service object.</param>
+        </member>
+        <member name="M:BookStoreApi.Controllers.AuthorsController.GetAll">
+            <summary>
+            Gets all authors.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BookStoreApi.Controllers.AuthorsController.Delete(System.Int32)">
+            <summary>
+            Deletes an author.
+            </summary>
+            <param name="id">id of the author to be deleted.</param>
+            <returns>204-No Content.</returns>
+        </member>
+        <member name="M:BookStoreApi.Controllers.AuthorsController.GetById(System.Int32)">
+            <summary>
+            Gets an author Id.
+            </summary>
+            <returns>A single instance of Author.</returns>
+        </member>
+        <member name="M:BookStoreApi.Controllers.AuthorsController.Post(BookStoreApi.Entities.Author)">
+            <summary>
+            Adds an author.
+            </summary>
+            <returns>A single instance of Author.</returns>
+        </member>
+        <member name="T:BookStoreApi.Entities.Author">
+            <summary>
+            Represents the Author table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.Author.Id">
+            <summary>
+            Gets or Sets First Name of the Author Id.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.Author.FirstName">
+            <summary>
+            Gets or Sets First Name of the Author.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.Author.LastName">
+            <summary>
+            Gets or Sets Last Name of the Author.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.Author.Genre">
+            <summary>
+            Gets or Sets Genre of the Author.
+            </summary>
+        </member>
+        <member name="T:BookStoreApi.Entities.BookRating">
+            <summary>
+            Represents the BookRating table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.BookRating.Id">
+            <summary>
+            Gets or Sets Id of the BookRating Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.BookRating.CustomerId">
+            <summary>
+            Gets or Sets CustomerId of the BookRating Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.BookRating.RatingComments">
+            <summary>
+            Gets or Sets Rating Comments of the BookRating Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.BookRating.Recommendation">
+            <summary>
+            Gets or Sets Recommendation Id of the BookRating Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.BookRating.BookId">
+            <summary>
+            Gets or Sets BookId of the BookRating Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.BookRating.Rating">
+            <summary>
+            Gets or Sets Rating of the BookRating Table.
+            </summary>
+        </member>
+        <member name="T:BookStoreApi.Entities.BookShelf">
+            <summary>
+            Represents the BookShelf table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.BookShelf.BookId">
+            <summary>
+            Gets or Sets BookId of the Book Shelf Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.BookShelf.BookName">
+            <summary>
+            Gets or Sets Book Name of the Book Shelf Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.BookShelf.Category">
+            <summary>
+            Gets or Sets Category of the Book Shelf Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.BookShelf.SubCategory">
+            <summary>
+            Gets or Sets Sub Category of the Book Shelf Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.BookShelf.Publisher">
+            <summary>
+            Gets or Sets Publisher of the Book Shelf Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.BookShelf.Cost">
+            <summary>
+            Gets or Sets Publisher of the Book Shelf Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.BookShelf.Medium">
+            <summary>
+            Gets or Sets Medium of the Book Shelf Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.BookShelf.Rating">
+            <summary>
+            Gets or Sets Medium of the Book Shelf Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.BookShelf.Summary">
+            <summary>
+            Gets or Sets Summary of the Book Shelf Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.BookShelf.Count">
+            <summary>
+            Gets or Sets Count of the Book Shelf Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.BookShelf.BookRating">
+            <summary>
+            Gets or sets BookId.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.BookShelf.OrderDetails">
+            <summary>
+            Gets or sets BookId.
+            </summary>
+        </member>
+        <member name="T:BookStoreApi.Entities.BookStoreContext">
+            <summary>
+            Represents the BookStore Context Class.
+            </summary>
+        </member>
+        <member name="M:BookStoreApi.Entities.BookStoreContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{BookStoreApi.Entities.BookStoreContext})">
+            <summary>
+            BookStore Context Class.
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="P:BookStoreApi.Entities.BookStoreContext.Authors">
+            <summary>
+            DBSet for Authors.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.BookStoreContext.BookShelf">
+            <summary>
+            DBSet for BookShelf.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.BookStoreContext.BookRating">
+            <summary>
+            DBSet for BookRating.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.BookStoreContext.Customer">
+            <summary>
+            DBSet for Customer.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.BookStoreContext.CustomerOrder">
+            <summary>
+            DBSet for CustomerOrder.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.BookStoreContext.CustomerPaymentDetails">
+            <summary>
+            DBSet for CustomerPaymentDetails.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.BookStoreContext.MembershipDetail">
+            <summary>
+            DBSet for MembershipDetail.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.BookStoreContext.OrderDetails">
+            <summary>
+            DBSet for OrderDetails.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.BookStoreContext.OrderInventory">
+            <summary>
+            DBSet for OrderInventory.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.BookStoreContext.PublisherDetails">
+            <summary>
+            DBSet for PublisherDetails.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.BookStoreContext.PublisherOrder">
+            <summary>
+            DBSet for PublisherOrder.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.BookStoreContext.PublisherOrderDetails">
+            <summary>
+            DBSet for PublisherOrderDetails.
+            </summary>
+        </member>
+        <member name="M:BookStoreApi.Entities.BookStoreContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            OnModelCreating.
+            </summary>
+            <param name="modelBuilder"></param>
+        </member>
+        <member name="T:BookStoreApi.Entities.Customer">
+            <summary>
+            Represents the Customer table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.Customer.CustomerId">
+            <summary>
+            Gets or Sets CustomerId of the Customer Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.Customer.DisplayName">
+            <summary>
+            Gets or Sets Display Name of the Customer Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.Customer.MembershipId">
+            <summary>
+            Gets or Sets Membership Id of the Customer Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.Customer.MainDeliveryAddress">
+            <summary>
+            Gets or Sets Main Delivery Address of the Customer Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.Customer.ActiveDirectoryId">
+            <summary>
+            Gets or Sets Active Directory Id of the Customer Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.Customer.BookRating">
+            <summary>
+            Gets or sets CustomerId.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.Customer.CustomerPaymentDetails">
+            <summary>
+            Gets or sets CustomerId.
+            </summary>
+        </member>
+        <member name="T:BookStoreApi.Entities.CustomerOrder">
+            <summary>
+            Represents the CustomerOrder table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.CustomerOrder.CustomerOrderId">
+            <summary>
+            Gets or Sets CustomerOrderId of the CustomerOrder Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.CustomerOrder.DeliveryAddress">
+            <summary>
+            Gets or Sets Delivery Address of the CustomerOrder Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.CustomerOrder.PaymentMode">
+            <summary>
+            Gets or Sets PaymentMode of the CustomerPaymentDetails Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.CustomerOrder.PaymentDetails">
+            <summary>
+            Gets or Sets Payment Details of the CustomerPaymentDetails Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.CustomerOrder.CourierId">
+            <summary>
+            Gets or Sets CourierId of the CustomerOrder Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.CustomerOrder.TotalCost">
+            <summary>
+            Gets or Sets Publisher of the CustomerOrder Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.CustomerOrder.OrderDateRaised">
+            <summary>
+            Gets or Sets OrderDateRaised of the CustomerOrder Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.CustomerOrder.Status">
+            <summary>
+            Gets or Sets Status of the CustomerOrder Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.CustomerOrder.OrderDetails">
+            <summary>
+            Gets or sets CustomerOrderId.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.CustomerOrder.OrderInventory">
+            <summary>
+            Gets or sets CustomerOrderId.
+            </summary>
+        </member>
+        <member name="T:BookStoreApi.Entities.CustomerPaymentDetails">
+            <summary>
+            Represents the CustomerPaymentDetails table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.CustomerPaymentDetails.Id">
+            <summary>
+            Gets or Sets Id of the CustomerPaymentDetails Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.CustomerPaymentDetails.CustomerId">
+            <summary>
+            Gets or Sets CustomerId of the CustomerPaymentDetails Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.CustomerPaymentDetails.PreferredPaymentOption">
+            <summary>
+            Gets or Sets Preferred Payment Option of the CustomerPaymentDetails Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.CustomerPaymentDetails.CardNumber">
+            <summary>
+            Gets or Sets CardNumber of the CustomerPaymentDetails Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.CustomerPaymentDetails.CardType">
+            <summary>
+            Gets or Sets CardType of the CustomerPaymentDetails Table.
+            </summary>
+        </member>
+        <member name="T:BookStoreApi.Entities.MembershipDetail">
+            <summary>
+            Represents the MembershipDetail table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.MembershipDetail.MembershipId">
+            <summary>
+            Gets or Sets MembershipId of the MembershipDetail Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.MembershipDetail.Discount">
+            <summary>
+            Gets or Sets Discount of the MembershipDetail Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.MembershipDetail.DeliveryCharges">
+            <summary>
+            Gets or Sets DeliveryCharges of the MembershipDetail Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.MembershipDetail.DeliveryPriority">
+            <summary>
+            Gets or Sets DeliveryPriority of the MembershipDetail Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.MembershipDetail.MembershipType">
+            <summary>
+            Gets or Sets MembershipType of the MembershipDetail Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.MembershipDetail.Customer">
+            <summary>
+            Gets or sets MembershipId.
+            </summary>
+        </member>
+        <member name="T:BookStoreApi.Entities.OrderDetails">
+            <summary>
+            Represents the OrderDetails table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.OrderDetails.Id">
+            <summary>
+            Gets or Sets Id of the CustomerPaymentDetails Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.OrderDetails.CustomerOrderId">
+            <summary>
+            Gets or Sets CustomerOrderId of the OrderDetails Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.OrderDetails.BookId">
+            <summary>
+            Gets or Sets BookId of the OrderDetails Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.OrderDetails.Cost">
+            <summary>
+            Gets or Sets Cost of the OrderDetails Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.OrderDetails.Quantity">
+            <summary>
+            Gets or Sets Quantity of the OrderDetails Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.OrderDetails.OrderDetailId">
+            <summary>
+            Gets or Sets OrderDetailId of the OrderDetails Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.OrderDetails.PublisherOrder">
+            <summary>
+            Gets or sets OrderDetailId.
+            </summary>
+        </member>
+        <member name="T:BookStoreApi.Entities.OrderInventory">
+            <summary>
+            Represents the OrderInventory table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.OrderInventory.Id">
+            <summary>
+            Gets or Sets Id of the OrderInventory Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.OrderInventory.PublisherOrderId">
+            <summary>
+            Gets or Sets PublisherOrderId of the OrderInventory Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.OrderInventory.CustomerOrderId">
+            <summary>
+            Gets or Sets CustomerOrderId of the OrderInventory Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.OrderInventory.Status">
+            <summary>
+            Gets or Sets Status of the OrderInventory Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.OrderInventory.OrderType">
+            <summary>
+            Gets or Sets OrderType of the OrderInventory Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.OrderInventory.DateRaised">
+            <summary>
+            Gets or Sets DateRaised of the OrderInventory Table.
+            </summary>
+        </member>
+        <member name="T:BookStoreApi.Entities.PublisherDetails">
+            <summary>
+            Represents the PublisherDetails table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.PublisherDetails.PublisherId">
+            <summary>
+            Gets or Sets PublisherId of the PublisherDetails Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.PublisherDetails.PublisherName">
+            <summary>
+            Gets or Sets PublisherName of the PublisherDetails Table.
+            </summary>
+        </member>
+        <member name="T:BookStoreApi.Entities.PublisherOrder">
+            <summary>
+            Represents the PublisherOrder table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.PublisherOrder.PublisherOrderId">
+            <summary>
+            Gets or Sets PublisherId of the PublisherOrder Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.PublisherOrder.OrderDetailId">
+            <summary>
+            Gets or Sets OrderDetailId of the PublisherOrder Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.PublisherOrder.OrderRaisedDate">
+            <summary>
+            Gets or Sets OrderRaisedDate of the PublisherOrder Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.PublisherOrder.PublisherOrderDetails">
+            <summary>
+            Gets or sets PublisherOrderId.
+            </summary>
+        </member>
+        <member name="T:BookStoreApi.Entities.PublisherOrderDetails">
+            <summary>
+            Represents the PublisherOrderDetails table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.PublisherOrderDetails.Id">
+            <summary>
+            Gets or Sets Id of the PublisherOrderDetails Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.PublisherOrderDetails.PublisherOrderId">
+            <summary>
+            Gets or Sets PublisherOrderId of the PublisherDetails Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.PublisherOrderDetails.BookName">
+            <summary>
+            Gets or Sets BookName of the PublisherOrderDetails Table.
+            </summary>
+        </member>
+        <member name="P:BookStoreApi.Entities.PublisherOrderDetails.Quantity">
+            <summary>
+            Gets or Sets Quantity of the PublisherDetails Table.
+            </summary>
+        </member>
+        <member name="T:BookStoreApi.Services.Contract.IBookStoreService">
+            <summary>
+            Represents an interface for BookStore Service.
+            </summary>
+        </member>
+        <member name="M:BookStoreApi.Services.Contract.IBookStoreService.GetAllAuthors">
+            <summary>
+            Get all authors.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BookStoreApi.Services.Contract.IBookStoreService.DeleteAuthor(System.Int32)">
+            <summary>
+            Deletes an author.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BookStoreApi.Services.Contract.IBookStoreService.GetAuthorById(System.Int32)">
+            <summary>
+            Gets an author by Id.
+            </summary>
+            <returns>A single instance of author object.</returns>
+        </member>
+        <member name="M:BookStoreApi.Services.Contract.IBookStoreService.AddAuthor(BookStoreApi.Entities.Author)">
+            <summary>
+            Adds an author.
+            </summary>
+            <returns>A single instance of author object.</returns>
+        </member>
+        <member name="T:BookStoreApi.Services.Implementation.BookStoreService">
+            <summary>
+            Represents BookStore Service.
+            </summary>
+        </member>
+        <member name="M:BookStoreApi.Services.Implementation.BookStoreService.#ctor(BookStoreApi.Entities.BookStoreContext)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:BookStoreApi.Services.Implementation.BookStoreService.GetAllAuthors">
+            <summary>
+            Gets all Authors.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BookStoreApi.Services.Implementation.BookStoreService.DeleteAuthor(System.Int32)">
+            <summary>
+            Deletes an Author.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BookStoreApi.Services.Implementation.BookStoreService.GetAuthorById(System.Int32)">
+            <summary>
+            Gets an Author by Id.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BookStoreApi.Services.Implementation.BookStoreService.AddAuthor(BookStoreApi.Entities.Author)">
+            <summary>
+            Adds an Author.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BookStoreApi.Startup.MigrateDatabase(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Migrate Database.
+            </summary>
+            <param name="app">ApplicationBuilder object.</param>
+        </member>
+    </members>
+</doc>
